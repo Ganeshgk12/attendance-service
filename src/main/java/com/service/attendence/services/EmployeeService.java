@@ -12,4 +12,6 @@ public interface EmployeeService {
     ResponseEntity<String> createEmployee(CreateEmpRequest createEmpRequest);
 
     ResponseEntity<List<Employee>> getAllEmployees();
+
+    ResponseEntity<Employee> getEmployeeById(Long employeeId);
 }

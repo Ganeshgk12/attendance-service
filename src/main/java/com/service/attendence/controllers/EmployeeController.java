@@ -31,4 +31,12 @@ public class EmployeeController {
     public ResponseEntity<List<Employee>> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
+
+    @GetMapping("/get-employee-by-id/{employeeId}")
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable Long employeeId) {
+        if (employeeId == null || employeeId <= 0) {
+            return ResponseEntity.badRequest().body(null);
+        }
+        return employeeService.getEmployeeById(employeeId);
+    }
 }

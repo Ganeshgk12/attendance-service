@@ -38,4 +38,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         return ResponseEntity.ok(employees);
     }
+
+    @Override
+    public ResponseEntity<Employee> getEmployeeById(Long employeeId) {
+        return employeeRepository.findById(employeeId)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }
